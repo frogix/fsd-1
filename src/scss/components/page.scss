@@ -1,0 +1,11 @@
+.page {
+    &__header {
+        max-width: $max-width;
+        margin: 0 auto;
+    }
+
+    &__greeting {
+        background-image: url(../images/greeting_img.jpg);
+        height: 830px;
+    }
+}

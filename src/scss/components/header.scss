@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+
+    &__nav {
+        margin-left: auto;
+
+        ul {
+            display: flex;
+        }
+
+    }
+
+    &__nav-link {
+        padding: 26px 10px;
+        text-decoration: none;
+        color: $dark-50;
+        font-family: $font-primary;
+        transition: color .1s ease-in;
+
+        &:hover {
+            color: $dark-75;
+        }
+
+        &--active {
+            color: $dark-75;
+            font-weight: bold;
+        }
+    }
+
+    &__logo {
+        width: 106px;
+        height: 40px;
+        background-image: url(../images/logo.svg);
+    }
+
+    &__button {
+        margin-left: 20px;
+    }
+
+    &__buttons {
+        display: flex;
+    }
+
+}

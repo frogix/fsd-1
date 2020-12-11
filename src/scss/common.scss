@@ -1,0 +1,55 @@
+// common.scss
+// This file contains styles that are common for the whole project
+
+* {
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+}
+
+//////////////////
+//  TYPOGRAPHY  //
+//////////////////
+h1, h2, h3, p {
+  font-family: Montserrat, sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+h2 {
+  font-size: 19px;
+  line-height: 23px;
+}
+
+h3 {
+  font-size: 12px;
+  line-height: 24px;
+  line-height: 15px;
+}
+
+p {
+  font-size: 12px;
+  line-height: 24px;
+}
+
+/////////////////////
+//  Form elements  //
+/////////////////////
+input {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+input[type="text"] {
+  border: 1px solid $dark-25;
+
+  &:hover, &:focus {
+    border: 1px solid $dark-50;
+  }
+}

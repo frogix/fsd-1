@@ -1,1 +1,24 @@
-h1 Hello from header
+mixin header_link(text, url, active=false)
+    li
+        if active === true
+            a.header__nav-link.header__nav-link--active(href=url)= text
+        else
+            a.header__nav-link(href=url)= text
+
+header.header
+    a.header__logo(href='#')
+
+
+    nav.header__nav
+        ul
+            +header_link("О нас", "#", true)
+            +header_link("Услуги", "#")
+            +header_link("Вакансии", "#")
+            +header_link("Новости", "#")
+            +header_link("Соглашения", "#")
+
+    .header__buttons
+        .header__button
+            button.btn.btn--outline Войти
+        .header__button
+            button.btn Зарегистрироваться

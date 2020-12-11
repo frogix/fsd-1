@@ -1,0 +1,25 @@
+.btn {
+    border: none;
+    border-radius: 22px;
+    background: $primary-gradient;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14.62px;
+    color: #fff;
+    outline: none;
+    padding: 10px 20px;
+    transition: opacity .1s ease-in;
+    font-size: 12px;
+
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    &--outline {
+        border: 2px solid $purple;
+        background: transparent;
+        color: $purple;
+    }
+}

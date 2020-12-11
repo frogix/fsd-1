@@ -11,5 +11,9 @@ html(lang="ru")
         block head
 
     body
-        include components/header/header.pug
+        .page
+            .page__header
+                include components/header/header.pug
+            .page__greeting
+
         block content
