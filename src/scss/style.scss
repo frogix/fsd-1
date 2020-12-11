@@ -5,9 +5,11 @@
 @import 'reset.sass';
 @import 'fonts.css';
 @import 'variables.scss';
+@import 'mixins.scss';
 @import 'common.scss';
 
 // Import components
 @import 'components/header.scss';
 @import 'components/btn.scss';
 @import 'components/page.scss';
+@import 'components/footer.scss';

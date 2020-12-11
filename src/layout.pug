@@ -1,3 +1,5 @@
+include components/mixins.pug
+
 doctype html
 html(lang="ru")
     head
@@ -14,6 +16,10 @@ html(lang="ru")
         .page
             .page__header
                 include components/header/header.pug
-            .page__greeting
 
-        block content
+            main.page__content
+                .page__greeting
+                block content
+
+            .page__footer
+                include components/footer/footer.pug
