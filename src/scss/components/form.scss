@@ -1,0 +1,28 @@
+.form {
+    &__vsplit {
+        display: flex;
+    }
+
+
+
+    &__label {
+        color: $dark-shade;
+
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+
+        text-transform: uppercase;
+        display: block;
+
+        margin-bottom: 5px;
+    }
+
+    &__group {
+        max-width: 100%;
+        margin-right: 20px;
+    }
+
+    &__input {
+    }
+}
