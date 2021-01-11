@@ -6,9 +6,6 @@
     &__greeting {
         background-image: url(../images/greeting_img.jpg);
         height: 830px;
-    }
-
-    &__footer {
-        // @include container;
+        padding-top: 70px;
     }
 }

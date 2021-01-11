@@ -1,1 +1,17 @@
 extends layout.pug
+
+block content
+    .page__greeting
+        .container
+            .page__greeting-card
+                .form-card
+                    h1 Найдём номера под ваши пожелания
+
+                    form(method="POST")
+                        .form__vsplit
+                            .form__group
+                                label.form__label(for="arrival-date") Прибытие
+                                input.form__input(type="text" placeholder="ДД.ММ.ГГГГ")
+                            .form__group
+                                label.form__label(for="arrival-date") Выезд
+                                input.form__input(type="text" placeholder="ДД.ММ.ГГГГ")
