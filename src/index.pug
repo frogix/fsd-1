@@ -1,17 +1,31 @@
 extends layout.pug
 
 block content
-    .page__greeting
-        .container
-            .page__greeting-card
-                .form-card
-                    h1 Найдём номера под ваши пожелания
+    .page__greeting-bg
+        .page__greeting.container
+            .form-card
+                h1 Найдём номера под ваши пожелания
 
-                    form(method="POST")
-                        .form__vsplit
-                            .form__group
-                                label.form__label(for="arrival-date") Прибытие
-                                input.form__input(type="text" placeholder="ДД.ММ.ГГГГ")
-                            .form__group
-                                label.form__label(for="arrival-date") Выезд
-                                input.form__input(type="text" placeholder="ДД.ММ.ГГГГ")
+                form(method="POST")
+                    .form__vsplit
+                        .form__vsplit-group
+                            label.form__label(for="arrival-date") Прибытие
+                            input.form__input(name="arrival" type="text" placeholder="ДД.ММ.ГГГГ")
+                        .form__vsplit-group
+                            label.form__label(for="arrival-date") Выезд
+                            input.form__input(name="departure" type="text" placeholder="ДД.ММ.ГГГГ")
+                    .form__group
+                        label.form__label(for="arrival-date") Гости
+                        select.form__input.form__select(name="guestNumber" required type="text" placeholder="Сколько гостей?")
+                            option(value="" disabled selected) Сколько гостей?
+                            option(value="0") 0
+                            option(value="1") 1
+                            option(value="2") 2
+
+                    .form__group
+                        button.form__submit.btn.btn--arrow(type="submit") Подобрать номер
+
+            p.page__greeting-subtext
+                | Лучшие номера для вашей работы,
+                br
+                | отдыха и просто вдохновения
