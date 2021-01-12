@@ -1,9 +1,18 @@
 .form {
     &__vsplit {
         display: flex;
+        margin-bottom: 20px;
     }
 
 
+    &__select {
+        background: white;
+    }
+
+
+    &__submit {
+        width: 100%;
+    }
 
     &__label {
         color: $dark-shade;
@@ -18,11 +27,25 @@
         margin-bottom: 5px;
     }
 
-    &__group {
-        max-width: 100%;
-        margin-right: 20px;
+
+    &__vsplit-group {
+
+        &--vsplit {
+            margin-top: 0;
+        }
+
+        & ~ .form__vsplit-group {
+            margin-left: 20px;
+        }
     }
 
-    &__input {
+
+    &__group {
+        max-width: 100%;
+
+
+        & ~ .form__group {
+            margin-top: 20px;
+        }
     }
 }

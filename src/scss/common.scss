@@ -51,12 +51,13 @@ p {
 /////////////////////
 //  Form elements  //
 /////////////////////
-input {
+input, select {
   font-size: 14px;
   line-height: 18px;
+  width: 100%;
 }
 
-input[type="text"], input[type="date"] {
+select, input[type="text"], input[type="date"] {
   border: 1px solid $dark-25;
   border-radius: 4px;
 
@@ -67,3 +68,12 @@ input[type="text"], input[type="date"] {
     border: 1px solid $dark-50;
   }
 }
+
+// Hide default select value (placeholder) from selection menu
+option[value=""][disabled] {
+  display: none;
+}
+
+select:required:invalid {
+        color: #666;
+      }
