@@ -2,4 +2,39 @@ extends ../layout
 
 
 block content
-    h1 Hello world
+    .container
+        .search
+            .search__filters
+                form(method="PUSH")
+                    .form__group
+                        label.form__label(for="period") Даты пребывания в отеле
+                        input.form__input(name="period" type="text" placeholder="19 авг - 23 авг")
+                    .form__group
+                        label.form__label(for="guestNumber") Гости
+                        select.form__input.form__select(name="guestNumber" type="text")
+                            option(value="" disabled selected) 3 гостя, 1 младенец
+                            option(value="0") 0
+                            option(value="1") 1
+                            option(value="2") 2
+                    .form__group
+                        label.form__label(for="priceRange") Диапазон цены
+                            .form__label-subtext 5 000₽ - 10 000₽
+                        input.form__input(name="priceRange" type="range")
+                        p.form__input-subtext Стоимость за сутки пребывания в номере
+
+                    .form__group
+                        label.form__label(for="rules")
+
+                        input.form__input(type="checkbox" name="isSmokingAllowed")
+                        label(for="isSmokingAllowed") Можно курить
+
+                        input.form__input(type="checkbox" name="arePetsAllowed")
+                        label(for="arePetsAllowed") Можно с питомцами
+
+                        input.form__input(type="checkbox" name="areGuestsAllowed")
+                        label(for="areGuestsAllowed") Можно пригласить гостей (до 10 человек)
+
+                    .form__group
+                        label.form__label(for="availability")
+
+                        .form__checkbo
