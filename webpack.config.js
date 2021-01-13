@@ -18,9 +18,9 @@ module.exports = {
   plugins: [
     // Removes build folder before building
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-  ]
+
     // array of HTML plugins for each page in templateDir
-    .concat(generateHtmlPlugins(opts.dirs.templateDir)),
+  ].concat(generateHtmlPlugins(opts.dirs.templateDir)),
 
   devServer: {
     contentBase: opts.dirs.dist,
