@@ -1,20 +1,29 @@
 const path = require("path");
+const fs = require("fs");
+
+const opts = {
+  dirs: {
+    src: path.resolve(__dirname, "src"),
+    dist: path.resolve(__dirname, "dist"),
+    templateDir: path.resolve(__dirname, "src", "pages"),
+  },
+};
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
+  entry: path.resolve(opts.dirs.src, "index.js"),
   plugins: [
-    // new CleanWebpackPlugin(),
+    // Removes build folder before building
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src", "index.pug"),
-    }),
-  ],
+  ]
+    // array of HTML plugins for each page in templateDir
+    .concat(generateHtmlPlugins(opts.dirs.templateDir)),
+
   devServer: {
-    contentBase: "./dist",
+    contentBase: opts.dirs.dist,
   },
   module: {
     rules: [
@@ -38,6 +47,23 @@ module.exports = {
   },
   output: {
     filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    path: opts.dirs.dist,
   },
 };
+
+function generateHtmlPlugins(templateDir) {
+  const templateFiles = fs.readdirSync(templateDir);
+  return templateFiles.map((item) => {
+    // Split names and extension
+    const parts = item.split(".");
+    const name = parts[0];
+    const extension = parts[1];
+    return new HtmlWebpackPlugin({
+      filename: `${name}.html`,
+      template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+    });
+  });
+}
+
+// We will call the function like this:
+// const htmlPlugins = generateHtmlPlugins("./src/template/views");
