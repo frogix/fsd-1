@@ -1,5 +1,38 @@
 extends ../layout
 
+mixin rich-textbox(title="", text="", id="")
+    .rich-textbox
+        input.rich-textbox__box(type="checkbox" id=id name=id)
+        label.rich-textbox__content(for=id)
+            .rich-textbox__title= title
+            .rich-textbox__text= text
+
+mixin dropdown-select(opts)
+    // Option object:
+    //      string name: name and id for item
+    //      string placeholder: default text (if missed the 1st option is selected)
+    //      []items: array of select options with its own syntax
+    //
+    //      Syntax for item in array:
+    //          string title: item title
+    //          int min: minimal value for item
+    //          int max: maximal value for item
+    //          int defaultValue: default value (optional)
+    .dropdown-select
+        .dropdown-select__box
+        .dropdown-select__items
+            for item in opts.items
+                .dropdown-item
+                    .dropdown-item__text= item.title
+                    .dropdown-item__controls
+                        .dropdown-item__control -
+                        // if item.defaultValue
+                        //     .dropdown-item__counter= item.defaultValue
+                        // else
+                        //     .dropdown-item__counter 0
+                        .dropdown-item__control +
+
+
 
 block content
     .container
@@ -23,18 +56,25 @@ block content
                         p.form__input-subtext Стоимость за сутки пребывания в номере
 
                     .form__group
-                        label.form__label(for="rules")
+                        label.form__label(for="rules") Правила дома
 
-                        input.form__input(type="checkbox" name="isSmokingAllowed")
+                        input.form__input#isSmokingAllowed(type="checkbox" name="isSmokingAllowed")
                         label(for="isSmokingAllowed") Можно курить
 
-                        input.form__input(type="checkbox" name="arePetsAllowed")
+                        input.form__input#arePetsAllowed(type="checkbox" name="arePetsAllowed")
                         label(for="arePetsAllowed") Можно с питомцами
 
-                        input.form__input(type="checkbox" name="areGuestsAllowed")
+                        input.form__input#areGuestsAllowed(type="checkbox" name="areGuestsAllowed")
                         label(for="areGuestsAllowed") Можно пригласить гостей (до 10 человек)
 
                     .form__group
-                        label.form__label(for="availability")
+                        label.form__label(for="availability") Доступность
 
-                        .form__checkbo
+                        .form__rich-textbox
+                            +rich-textbox("Широкий коридор", "Ширина коридоров в номере не менее 91 см.", "wideCorridor")
+
+                        .form__rich-textbox
+                            +rich-textbox("Помощник для инвалидов", "На 1 этаже вас встретит специалист  и проводит до номера.", "disabledHelper")
+
+                    .form__group
+                        label.form__label(for="availability") Удобства номера

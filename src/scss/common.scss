@@ -54,10 +54,10 @@ p {
 input, select {
   font-size: 14px;
   line-height: 18px;
-  width: 100%;
 }
 
 select, input[type="text"], input[type="date"] {
+  width: 100%;
   border: 1px solid $dark-25;
   border-radius: 4px;
 
