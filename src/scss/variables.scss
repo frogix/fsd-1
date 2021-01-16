@@ -4,10 +4,10 @@
 // (colors, etc.)
 
 $dark-shade: #1F2041;
-$dark-75: lighten($dark-shade, 25%);
-$dark-50: lighten($dark-shade, 50%);
-$dark-25: lighten($dark-shade, 75%);
-$dark-5:  lighten($dark-shade, 95%);
+$dark-75: rgba($dark-shade, .75);
+$dark-50: rgba($dark-shade, .5);
+$dark-25: rgba($dark-shade, .25);
+$dark-5:  rgba($dark-shade, .05);
 
 $purple: #BC9CFF;
 $green:  #6FCF97;
