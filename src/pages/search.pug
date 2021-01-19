@@ -20,16 +20,19 @@ mixin dropdown-select(opts)
     //          int defaultValue: default value (optional)
     .dropdown-select
         .dropdown-select__box
-        .dropdown-select__items
+            span.dropdown-select__value= opts.placeholder
+            span.dropdown-select__more
+                i.material-icons expand_more
+        .dropdown-select__items.dropdown-select__items--hidden
             for item in opts.items
                 .dropdown-item
                     .dropdown-item__text= item.title
                     .dropdown-item__controls
-                        .dropdown-item__control -
-                        // if item.defaultValue
+                        if item.min == item.defaultValue
+                            .dropdown-item__control.dropdown-item__control--disabled -
+                        else
+                            .dropdown-item__control -
                         .dropdown-item__counter= item.defaultValue
-                        // else
-                        //     .dropdown-item__counter 0
                         .dropdown-item__control +
 
 
@@ -41,12 +44,37 @@ block content
             placeholder: "2 спальни, 2 кровати...",
             items: [{
                 title: "Спальни",
+                min: 1,
+                max: 4,
+                defaultValue: "2"
+            }, {
+                title: "Кровати",
+                min: 1,
+                max: 4,
+                defaultValue: "2"
+            }, {
+                title: "Ванные комнаты",
                 min: 0,
-                max: 3,
-                defaultValue: "4"
+                max: 4,
+                defaultValue: "0"
             }]
         }
 
+        var guestsOpts = {
+            name: "guests",
+            placeholder: "3 гостя, 1 младенец",
+            items: [{
+                title: "Гости",
+                min: 1,
+                max: 6,
+                defaultValue: "1"
+            }, {
+                title: "Младенцы",
+                min: 0,
+                max: 6,
+                defaultValue: "0"
+            }]
+        }
 
     .container
         .search
@@ -57,11 +85,7 @@ block content
                         input.form__input(name="period" type="text" placeholder="19 авг - 23 авг")
                     .form__group
                         label.form__label(for="guestNumber") Гости
-                        select.form__input.form__select(name="guestNumber" type="text")
-                            option(value="" disabled selected) 3 гостя, 1 младенец
-                            option(value="0") 0
-                            option(value="1") 1
-                            option(value="2") 2
+                        +dropdown-select(guestsOpts)
                     .form__group
                         label.form__label(for="priceRange") Диапазон цены
                             .form__label-subtext 5 000₽ - 10 000₽

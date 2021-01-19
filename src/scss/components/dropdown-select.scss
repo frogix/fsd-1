@@ -1,0 +1,29 @@
+.dropdown-select {
+    background: white;
+    border: 1px solid $dark-50;
+    border-radius: 2px;
+    width: 100%;
+
+    &__items {
+        border-top: 1px solid $dark-50;
+        padding: 7px;
+        padding-left: 15px;
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__more {
+        cursor: pointer;
+        display: flex;
+    }
+
+    &__box {
+        color: $dark-75;
+        display: flex;
+        padding: 12px 15px 8px;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
