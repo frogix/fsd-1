@@ -27,7 +27,7 @@ mixin dropdown-select(opts)
                     .dropdown-item__controls
                         .dropdown-item__control -
                         // if item.defaultValue
-                        //     .dropdown-item__counter= item.defaultValue
+                        .dropdown-item__counter= item.defaultValue
                         // else
                         //     .dropdown-item__counter 0
                         .dropdown-item__control +
@@ -35,6 +35,19 @@ mixin dropdown-select(opts)
 
 
 block content
+    -
+        var availabilityOpts = {
+            name: "availability",
+            placeholder: "2 спальни, 2 кровати...",
+            items: [{
+                title: "Спальни",
+                min: 0,
+                max: 3,
+                defaultValue: "4"
+            }]
+        }
+
+
     .container
         .search
             .search__filters
@@ -78,3 +91,13 @@ block content
 
                     .form__group
                         label.form__label(for="availability") Удобства номера
+                        +dropdown-select(availabilityOpts)
+    // Option object:
+    //      string name: name and id for item
+    //      string placeholder: default text (if missed the 1st option is selected)
+    //      []items: array of select options with its own syntax
+    //
+    //      Syntax for item in array:
+    //          string title: item title
+    //          int min: minimal value for item
+    //          int max: maximal value for item
