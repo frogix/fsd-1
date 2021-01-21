@@ -37,6 +37,20 @@ mixin dropdown-select(opts)
 
 
 
+mixin checkbox(opts)
+    // Opts object syntax:
+    //
+    // string label: displayed text
+    // string name: form name attribute
+    // bool isChecked: specifies default state (default: false)
+    .checkbox
+        label
+            if opts.isChecked
+                input.checkbox__box.checkbox__box--checked(type="checkbox" name=opts.name)
+            else
+                input.checkbox__box(type="checkbox" name=opts.name)
+            .checkbox__label= opts.label
+
 block content
     -
         var availabilityOpts = {
@@ -76,6 +90,49 @@ block content
             }]
         }
 
+        var rulesCheckboxes = [
+            {
+                label: "Можно курить",
+                name: "isSmokingAllowed"
+            },
+            {
+                label: "Можно с питомцами",
+                name: "arePetsAllowed"
+            },
+            {
+                label: "Можно пригласить гостей",
+                name: "areGuestsAllowed"
+            },
+        ]
+
+        var additionalCheckboxes = [
+            {
+                label: "Завтрак",
+                name: "hasBreakfast"
+            },
+            {
+                label: "Письменный стол",
+                name: "hasWritingTable"
+            },
+            {
+                label: "Стол для кормления",
+                name: "hasFeedingTable"
+            },
+            {
+                label: "Кроватка",
+                name: "hasChildBed"
+            },
+            {
+                label: "Телевизор",
+                name: "hasTV"
+            },
+            {
+                label: "Шампунь",
+                name: "hasShampoo"
+            }
+        ]
+
+
     .container
         .search
             .search__filters
@@ -95,14 +152,8 @@ block content
                     .form__group
                         label.form__label(for="rules") Правила дома
 
-                        input.form__input#isSmokingAllowed(type="checkbox" name="isSmokingAllowed")
-                        label(for="isSmokingAllowed") Можно курить
-
-                        input.form__input#arePetsAllowed(type="checkbox" name="arePetsAllowed")
-                        label(for="arePetsAllowed") Можно с питомцами
-
-                        input.form__input#areGuestsAllowed(type="checkbox" name="areGuestsAllowed")
-                        label(for="areGuestsAllowed") Можно пригласить гостей (до 10 человек)
+                        for checkboxOpts in rulesCheckboxes
+                            +checkbox(checkboxOpts)
 
                     .form__group
                         label.form__label(for="availability") Доступность
@@ -116,12 +167,9 @@ block content
                     .form__group
                         label.form__label(for="availability") Удобства номера
                         +dropdown-select(availabilityOpts)
-    // Option object:
-    //      string name: name and id for item
-    //      string placeholder: default text (if missed the 1st option is selected)
-    //      []items: array of select options with its own syntax
-    //
-    //      Syntax for item in array:
-    //          string title: item title
-    //          int min: minimal value for item
-    //          int max: maximal value for item
+
+                    .form__group
+                        label.form__label(for="period") Дополнительные удобства
+
+                        for checkboxOpts in additionalCheckboxes
+                            +checkbox(checkboxOpts)
