@@ -1,0 +1,27 @@
+mixin dropdown-select(opts)
+    // Option object:
+    //      string name: name and id for item
+    //      string placeholder: default text (if missed the 1st option is selected)
+    //      []items: array of select options with its own syntax
+    //
+    //      Syntax for item in array:
+    //          string title: item title
+    //          int min: minimal value for item
+    //          int max: maximal value for item
+    //          int defaultValue: default value (optional)
+    .dropdown-select
+        .dropdown-select__box
+            span.dropdown-select__value= opts.placeholder
+            span.dropdown-select__more
+                i.material-icons expand_more
+        .dropdown-select__items.dropdown-select__items--hidden
+            for item in opts.items
+                .dropdown-item
+                    .dropdown-item__text= item.title
+                    .dropdown-item__controls
+                        if item.min == item.defaultValue
+                            .dropdown-item__control.dropdown-item__control--disabled -
+                        else
+                            .dropdown-item__control -
+                        .dropdown-item__counter= item.defaultValue
+                        .dropdown-item__control +

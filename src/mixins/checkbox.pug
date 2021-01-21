@@ -1,0 +1,13 @@
+mixin checkbox(opts)
+    // Opts object syntax:
+    //
+    // string label: displayed text
+    // string name: form name attribute
+    // bool isChecked: specifies default state (default: false)
+    .checkbox
+        label
+            if opts.isChecked
+                input.checkbox__box.checkbox__box--checked(type="checkbox" name=opts.name)
+            else
+                input.checkbox__box(type="checkbox" name=opts.name)
+            .checkbox__label= opts.label
