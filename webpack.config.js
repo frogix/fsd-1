@@ -33,7 +33,17 @@ module.exports = {
       },
       {
         test: /\.pug$/i,
-        loader: "pug-loader",
+        use: [
+          {
+            loader: "html-loader",
+          },
+          {
+            loader: "pug-html-loader",
+            options: {
+              pretty: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|)$/i,
@@ -48,6 +58,7 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: opts.dirs.dist,
+    publicPath: "",
   },
 };
 
