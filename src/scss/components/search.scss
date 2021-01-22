@@ -1,0 +1,21 @@
+.search {
+    display: flex;
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__result {
+        max-width: 270px;
+        margin-right: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0px 10px 20px $dark-5;
+        border-radius: 4px;
+    }
+
+    &__filters {
+        max-width: 266px;
+        margin-right: 60px;
+    }
+}

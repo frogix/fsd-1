@@ -1,0 +1,31 @@
+mixin room-card(opts)
+    //- Opts object:
+    //-    string[] imageURLs: array of image URLs
+    //-    int roomNumber: the number of room
+    //-    bool isLuxery: true if the room is luxery
+    //-    int price: price in Rub
+    //-    int rating: rating 0-5
+    //-    int reviewCount: the number of reviews
+    .room-card
+        .room-card__image
+            img(src=opts.imageURLs[0] alt="Room " + opts.roomNumber)
+        .room-card__text
+            .room-card__info
+                .room-card__info-left
+                    .room-card__number
+                        span.room-card__number-symbol №
+                        span.room-card__number-digits= opts.roomNumber
+                    if opts.isLuxery
+                        .room-card__luxery-mark люкс
+                .room-card__info-right
+                    .room-card__price
+                        span.room-card__price-sum= opts.price + "₽"
+                        |   в сутки
+            .room-card__reviews
+                .room-card__rating
+                    - for (var i = 0; i < opts.rating; i++) {
+                        i.material-icons star
+                    - }
+                .room-card__reviews-counter
+                    span.room-card__review-number= opts.reviewCount
+                    |  Отзывов

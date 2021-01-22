@@ -1,5 +1,6 @@
 extends ../layout
 
+
 block content
     -
         var availabilityOpts = {
@@ -82,6 +83,38 @@ block content
         ]
 
 
+        var rooms = [{
+                imageURLs: ["../images/room888_1.jpg"],
+                roomNumber: 888,
+                isLuxery: true,
+                price: 9990,
+                rating: 5,
+                reviewCount: 145
+            }, {
+                imageURLs: ["../images/room888_1.jpg"],
+                roomNumber: 888,
+                isLuxery: false,
+                price: 9990,
+                rating: 5,
+                reviewCount: 145
+            }, {
+                imageURLs: ["../images/room888_1.jpg"],
+                roomNumber: 888,
+                isLuxery: false,
+                price: 9990,
+                rating: 5,
+                reviewCount: 145
+            }, {
+                imageURLs: ["../images/room888_1.jpg"],
+                roomNumber: 888,
+                isLuxery: true,
+                price: 9990,
+                rating: 5,
+                reviewCount: 145
+            }
+
+        ]
+
     .container
         .search
             .search__filters
@@ -122,3 +155,10 @@ block content
 
                         for checkboxOpts in additionalCheckboxes
                             +checkbox(checkboxOpts)
+            .search__results
+                h1 Номера, которые мы для вас подобрали
+
+                .search__list
+                    for room in rooms
+                        .search__result
+                            +room-card(room)
