@@ -1,14 +1,14 @@
 mixin dropdown-select(opts)
-    // Option object:
-    //      string name: name and id for item
-    //      string placeholder: default text (if missed the 1st option is selected)
-    //      []items: array of select options with its own syntax
-    //
-    //      Syntax for item in array:
-    //          string title: item title
-    //          int min: minimal value for item
-    //          int max: maximal value for item
-    //          int defaultValue: default value (optional)
+    //- Option object:
+    //-      string name: name and id for item
+    //-      string placeholder: default text (if missed the 1st option is selected)
+    //-      []items: array of select options with its own syntax
+    //-
+    //-      Syntax for item in array:
+    //-          string title: item title
+    //-          int min: minimal value for item
+    //-          int max: maximal value for item
+    //-          int defaultValue: default value (optional)
     .dropdown-select
         .dropdown-select__box
             span.dropdown-select__value= opts.placeholder
