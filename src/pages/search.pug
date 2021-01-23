@@ -162,3 +162,14 @@ block content
                     for room in rooms
                         .search__result
                             +room-card(room)
+                .search__pagination
+                    .pagination
+                        .pagination__page-list
+                            a.pagination__page.pagination__page--active(href="#") 1
+                            a.pagination__page(href="#") 2
+                            a.pagination__page(href="#") 3
+                            a.pagination__page(href="#") ...
+                            a.pagination__page(href="#") 15
+                            a.pagination__page.pagination__next-page(href="#")
+                                i.material-icons arrow_forward
+                        p.pagination__subtext 1 – 12 из 100+ вариантов аренды
