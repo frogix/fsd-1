@@ -1,0 +1,11 @@
+.heading {
+
+    display: flex;
+    justify-content: space-between;
+
+
+    &__subtext {
+        color: $dark-50;
+        font-weight: normal;
+    }
+}

@@ -1,6 +1,8 @@
 mixin rich-textbox(title="", text="", id="")
     .rich-textbox
-        input.rich-textbox__box(type="checkbox" id=id name=id)
-        label.rich-textbox__content(for=id)
-            .rich-textbox__title= title
-            .rich-textbox__text= text
+        label.checkbox
+            input(type="checkbox" name=id)
+
+            .checkbox__label
+                .rich-textbox__title= title
+                .rich-textbox__text= text

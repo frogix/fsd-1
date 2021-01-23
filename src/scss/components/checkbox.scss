@@ -1,0 +1,61 @@
+.checkbox {
+    display: flex;
+    position: relative;
+
+    input {
+        display: none;
+        width: 1em;
+        height: 1em;
+
+        &:checked ~ .checkbox__label:before {
+            border: 1px solid $purple;
+        }
+
+        &:checked ~ .checkbox__label:after {
+            opacity: 1;
+        }
+    }
+
+
+    &__label {
+        color: $dark-50;
+        font-size: 14px;
+        line-height: 18px;
+        padding-left: 30px;
+        // padding: 3px 0 3px 30px;
+        min-height: 20px;
+
+        // Box
+        &::before {
+            left: 0;
+            top: 0;
+            content: '';
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+
+            border: 1px solid $dark-25;
+            border-radius: 4px;
+            position: absolute;
+        }
+
+        // Tick
+        &::after {
+            content: '';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            border-bottom: 2px solid $purple;
+            border-right: 2px solid $purple;
+            width: 6px;
+            height: 8px;
+            transform: rotate(45deg);
+            margin: 4px 5px 6px 5px;
+        }
+
+        &:hover:before {
+            background: #fafafa;
+        }
+    }
+}

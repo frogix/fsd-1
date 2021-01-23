@@ -1,7 +1,7 @@
 .dropdown-select {
     background: white;
-    border: 1px solid $dark-50;
-    border-radius: 2px;
+    border: 1px solid $dark-25;
+    border-radius: 4px;
     width: 100%;
 
     &__items {
@@ -10,7 +10,7 @@
         padding-left: 15px;
 
         &--hidden {
-            display: none;
+            // display: none;
         }
     }
 
